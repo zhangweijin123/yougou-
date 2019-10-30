@@ -1,13 +1,5 @@
 <!--index.wxml-->
-<!-- 搜索头部 -->
-<!-- 搜索栏 -->
-<view class="search">
-  <view class="search-input">
-    <!-- 小程序原生的组件 -->
-    <icon type="search" size="16"></icon>
-    搜索
-  </view>
-</view>
+<search/>
 
 <!-- 轮播图部分 -->
 <swiper indicator-dots="true" autoplay="true" interval="2000">

@@ -1,4 +1,6 @@
 // pages/category/index.js
+
+import request from "../../utils/request.js"
 Page({
 
   /**
@@ -6,7 +8,9 @@ Page({
    */
   data: {
       //当前选中的索引 默认初始为0
-      current:0
+      current:0,
+      //数据
+      list:[]
   },
   //点击左侧菜单时候出发
   handleChange(event){
@@ -15,6 +19,18 @@ Page({
 
     this.setData({
       current : index
+    })
+  },
+
+  onLoad(){
+    request({
+      url: "/api/public/v1/categories"
+    }).then(res=>{
+      console.log(res)
+      const {message} = res.data;
+      this.setData({
+        list:message
+      })
     })
   }
 })

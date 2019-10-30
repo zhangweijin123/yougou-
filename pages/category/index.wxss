@@ -21,6 +21,7 @@
   line-height: 100rpx;
   text-align: center;
   border-bottom: 1px #ddd solid;
+  font-size: 14px;
 } 
 /* 点击添加高亮 */
 .active{
@@ -58,11 +59,12 @@
   width: 33.33%;
   padding: 20rpx 0;
   box-sizing: border-box;
+  text-align: center;
 }
 
 .brand-item image{
-  width:100%;
-  max-height: 200rpx;
+  width:120rpx;
+  max-height: 120rpx;
 }
 
 .brand-text{

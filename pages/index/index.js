@@ -6,7 +6,10 @@ Page({
     background:[],
 
     //菜单列表数据
-    menus:[]
+    menus:[],
+
+    //楼层列表数据
+    floors:[]
   },
 
 
@@ -26,10 +29,19 @@ Page({
     request({
       url:"/api/public/v1/home/catitems"
     }).then(res=>{
-      console.log(res)
       const {message} = res.data;
       this.setData({
         menus:message
+      })
+    })
+
+    //请求楼层列表的数据
+    request({
+      url:"/api/public/v1/home/floordata"
+    }).then(res=>{
+      const {message} = res.data;
+      this.setData({
+        floors:message
       })
     })
   }

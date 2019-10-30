@@ -3,25 +3,53 @@
 <!-- 搜索栏 -->
 <view class="search">
   <view class="search-input">
-  <!-- 小程序原生的组件 -->
+    <!-- 小程序原生的组件 -->
     <icon type="search" size="16"></icon>
     搜索
   </view>
-</view> 
+</view>
 
 <!-- 轮播图部分 -->
 <swiper indicator-dots="true" autoplay="true" interval="2000">
-    <block wx:for="{{background}}" wx:key="{{index}}">
-      <swiper-item>
+  <block wx:for="{{background}}" wx:key="{{index}}">
+    <swiper-item>
       <!-- mode防止图片变形 -->
       <image src="{{item.image_src}}" mode="aspectFill" class="image"></image>
-      </swiper-item>
-    </block>
+    </swiper-item>
+  </block>
 </swiper>
 
 <!-- 菜单列表 -->
 <view class="menus">
-    <navigator url="" wx:for="{{menus}}" wx:key="{{index}}">
-        <image src="{{item.image_src}}"></image>
-    </navigator>
+  <navigator url="" wx:for="{{menus}}" wx:key="{{index}}">
+    <image src="{{item.image_src}}"></image>
+  </navigator>
 </view>
+
+
+<!-- 楼层列表 -->
+<view wx:for="{{floors}}" wx:key="{{index}}">
+  <view class="floor-title">
+    <image mode="aspectFill" src="{{item.floor_title.image_src}}"></image>
+  </view>
+
+  <view class="floor">
+    <!-- 左侧的大图 -->
+    <view class="left">
+      <navigator url="{{ item.product_list[0].navigator_url }}">
+        <image src="{{ item.product_list[0].image_src }}"></image>
+      </navigator>
+    </view>
+
+
+    <!-- 右侧的四张小图 -->
+    <view class="right">
+      <navigator url="{{ item.navigator_url }}" 
+      wx:for="{{ item.product_list }}" 
+      wx:key="{{index}}"
+      wx:if="{{ index > 0 }}">
+        <image src="{{ item.image_src }}"></image>
+      </navigator>
+    </view>
+  </view>
+</view> 

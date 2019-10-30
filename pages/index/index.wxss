@@ -18,11 +18,7 @@
 .search .search-input icon{
   margin-right:10rpx;
 }
-.content{
-  width: 100px;
-  height: 100px;
-}
-.content image{
+.image{
   width: 100%;
   height: 100%;
 }

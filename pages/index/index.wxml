@@ -10,10 +10,11 @@
 </view> 
 
 <!-- 轮播图部分 -->
-<view>
-  <swiper class="content" indicator-dots="true" autoplay="true" interval="2000">
+<swiper indicator-dots="true" autoplay="true" interval="2000">
     <block wx:for="{{background}}" wx:key="{{index}}">
-      <image src="{{item.image_src}}"></image>
+      <swiper-item>
+      <!-- mode防止图片变形 -->
+      <image src="{{item.image_src}}" mode="aspectFill" class="image"></image>
+      </swiper-item>
     </block>
-  </swiper>
-</view>
+</swiper>

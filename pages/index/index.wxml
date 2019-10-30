@@ -1,2 +1,19 @@
 <!--index.wxml-->
-<view>首页</view>
+<!-- 搜索头部 -->
+<!-- 搜索栏 -->
+<view class="search">
+  <view class="search-input">
+  <!-- 小程序原生的组件 -->
+    <icon type="search" size="16"></icon>
+    搜索
+  </view>
+</view> 
+
+<!-- 轮播图部分 -->
+<view>
+  <swiper class="content" indicator-dots="true" autoplay="true" interval="2000">
+    <block wx:for="{{background}}" wx:key="{{index}}">
+      <image src="{{item.image_src}}"></image>
+    </block>
+  </swiper>
+</view>

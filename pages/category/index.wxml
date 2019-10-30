@@ -1,2 +1,15 @@
 <!--pages/category/index.wxml-->
+<!-- 搜索头部 -->
 <search/>
+
+<view class="container">
+    <view class="menu">
+      <view class="menu-item"
+        wx:for="{{ [1,1,1,1,1,1,1,1,1,1,1] }}"
+        wx:key="{{index}}"
+      >
+        电器{{index}}
+      </view>
+    </view>
+    <view class="content">导航内容</view>
+</view>

@@ -17,14 +17,14 @@
 
 <!-- 商品列表 -->
 <view class="goods-list">
-    <navigator url="" class="goods-item">
-        <image src="http://img1.imgtn.bdimg.com/it/u=1016961158,2468130341&fm=26&gp=0.jpg" mode="aspectFill"></image>
+    <navigator url="" class="goods-item" wx:for="{{goods}}" wx:key="{{index}}">
+        <image src="{{item.goods_small_logo}}" mode="aspectFill"></image>
         <view class="goods-item-right">
             <view class="goods-title">
-              百度图片使用世界前沿的人工智能技术，为用户甄选海量的高清美图，用更流畅、更快捷、更精准的搜索体验，带你去发现多彩的世界。
+              {{item.goods_name}}
             </view>
             <view class="goods-price">
-              ￥99.00
+              ￥{{item.goods_price}}
             </view>
         </view>
     </navigator>

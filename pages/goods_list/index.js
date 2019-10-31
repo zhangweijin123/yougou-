@@ -9,7 +9,12 @@ Page({
       //url搜索关键字 分类页传过来的
       query:"",
       //商品列表 请求回来的数据
-      goods:[]
+      goods:[],
+
+      //判断是否有更多
+      hasMore:true,
+      //当前的页数
+      pagenum:1
   },
 
   /**
@@ -21,11 +26,17 @@ Page({
     this.setData({
       query
     });
+    //请求数据列表
+    this.getList();
+  },
+    //封装请求数据
+
+      getList(){
       request({
         url:"/api/public/v1/goods/search",
         data:{
-          query,
-          pagenum:1,
+          query:this.data.query,
+          pagenum: this.data.pagenum,
           pagesize:10
         }
       }).then(res=>{
@@ -39,57 +50,17 @@ Page({
         })
 
         this.setData({
-          goods
+          goods: [...this.data.goods, ...newGoods]
         })
       })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  //触底事件
+  onReachBottom() {
+    //到底部要请求下一页数据
+    this.setData({
+      pagenum: this.data.pagenum + 1
+    })
+    //然后再重新请求数据渲染
+    this.getList()
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

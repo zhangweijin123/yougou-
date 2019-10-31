@@ -28,4 +28,9 @@
             </view>
         </view>
     </navigator>
+
+    <!-- 加载中提示 也可能是加载完毕 -->
+    <view class="loading" wx:if="{{hasMore}}">小的正在飞速加载中.....</view>
+
+    <view class="loading" wx:if="{{!hasMore}}">主的，下面没有啦</view>
 </view>

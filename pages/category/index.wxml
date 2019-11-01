@@ -10,7 +10,7 @@
   </view>
   <view class="content">
     <view wx:for="{{list[current].children}}" wx:key="{{index}}">
-      <view class="brand-title">{{item.cat_name}}</view>
+      <view class="brand-title"><text>/ </text>{{item.cat_name}}<text>/ </text></view>
       <view class="brands">
         <navigator url="/pages/goods_list/index?query={{ item.cat_name }}" wx:for="{{ item.children }}" wx:key="{{index}}" class="brand-item">
           <image src="{{item.cat_icon}}" mode="aspectFill"></image>

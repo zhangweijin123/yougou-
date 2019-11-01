@@ -35,7 +35,7 @@
     <view>联系客服</view>
   </view>
   <navigator url="/pages/cart/index" open-type="switchTab" class="btn-left">
-    <view class='iconfont icon-kefu'></view>
+    <view class='iconfont icon-gouwuche'></view>
     <view>购物车</view>
   </navigator>
 

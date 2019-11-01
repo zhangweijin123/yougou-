@@ -3,10 +3,15 @@
 <view class="search">
     <view class="search-input">
         <icon type="search" size="14"></icon>
-        <input class="input" placeholder="请输入你想要的商品"></input>
+        <input class="input" 
+        placeholder="请输入你想要的商品"
+        bindinput="handleInput"
+        ></input>
     </view>
     
-    <view class="cancel">取消</view>
+    <view class="cancel" 
+        wx:if="{{isShow}}"
+    >取消</view>
 </view>
 
 <!-- 历史标题 -->

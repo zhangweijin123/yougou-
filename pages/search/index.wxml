@@ -1,0 +1,32 @@
+<!--pages/search/index.wxml-->
+<!-- 搜索头部 -->
+<view class="search">
+    <view class="search-input">
+        <icon type="search" size="14"></icon>
+        <input class="input" placeholder="请输入你想要的商品"></input>
+    </view>
+    
+    <view class="cancel">取消</view>
+</view>
+
+<!-- 历史标题 -->
+<view class="search-title">
+    <view class="history">历史搜索</view>
+    <icon type="clear" size="14"></icon>
+</view>
+
+<!-- 历史内容 -->
+<view class="history-content">
+    <view class="content-item">
+        小米
+    </view>
+    <view class="content-item">
+        小米打大叔的撒 
+    </view>
+    <view class="content-item">
+        小米第五位
+    </view>
+    <view class="content-item">
+        小米大是大非饭安抚
+    </view>
+</view>

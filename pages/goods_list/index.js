@@ -53,9 +53,8 @@ Page({
         pagesize: 10
       }
     }).then(res => {
-      const {
-        goods
-      } = res.data.message;
+      console.log(res)
+      const {goods} = res.data.message;
       //判断是否到最后一页
       if (goods.length < 10) {
         this.setData({

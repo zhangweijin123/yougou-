@@ -7,6 +7,8 @@ Page({
   data: {
       //判断是否点击取消按钮
       isShow:false,
+      //点击取消清除输入框的值
+      searchValue:'',
   },
 
   /**
@@ -27,9 +29,17 @@ Page({
     isShow = value.trim() ? true : false
     // 改变isShow的状态
     this.setData({
-      isShow
+      isShow,
+      //如果输入框有值复制给searchValue
+      searchValue: value
     })
-
   },
-  
+  handleClear(){
+    console.log(123)
+    //修改searchValue的值
+    this.setData({
+      isShow:false,
+      searchValue:''
+    })
+  }
 })

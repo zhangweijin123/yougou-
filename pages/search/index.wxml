@@ -1,15 +1,20 @@
 <!--pages/search/index.wxml-->
 <!-- 搜索头部 -->
+<!-- bindinput="handleInput"点击输入框的事件 -->
+<!-- value="{{searchValue}}"用来获取输入框的值 -->
 <view class="search">
     <view class="search-input">
         <icon type="search" size="14"></icon>
         <input class="input" 
         placeholder="请输入你想要的商品"
         bindinput="handleInput"
+        value="{{searchValue}}"
         ></input>
     </view>
-    
+    <!-- bindtap="handleClear"点击取消按钮的事件 -->
+    <!-- wx:if="{{isShow}}"显示和隐藏取消按钮的判断条件 -->
     <view class="cancel" 
+        bindtap="handleClear"
         wx:if="{{isShow}}"
     >取消</view>
 </view>

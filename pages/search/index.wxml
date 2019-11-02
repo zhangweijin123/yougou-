@@ -24,7 +24,7 @@
 <!-- 历史标题 -->
 <view class="search-title">
     <view class="history">历史搜索</view>
-    <icon type="clear" size="14"></icon>
+    <icon type="clear" size="14" bindtap="handleClear"></icon>
 </view>
 
 <!-- 历史内容 -->

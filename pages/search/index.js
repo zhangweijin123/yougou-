@@ -64,5 +64,13 @@ Page({
     wx.navigateTo({
       url: '/pages/goods_list/index?query='+ this.data.searchValue,
     })
+  },
+
+  //点击×按钮清除历史记录
+  handleClear(){
+    wx.removeStorageSync('search')
+    this.setData({
+      keywords:[]
+    })
   }
 })

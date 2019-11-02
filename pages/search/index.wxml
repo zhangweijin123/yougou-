@@ -2,6 +2,7 @@
 <!-- 搜索头部 -->
 <!-- bindinput="handleInput"点击输入框的事件 -->
 <!-- value="{{searchValue}}"用来获取输入框的值 -->
+<!-- bindconfirm="handleConfirm"用来输入值之后点击手机上的完成相当于键盘的回车 -->
 <view class="search">
     <view class="search-input">
         <icon type="search" size="14"></icon>
@@ -9,6 +10,7 @@
         placeholder="请输入你想要的商品"
         bindinput="handleInput"
         value="{{searchValue}}"
+        bindconfirm="handleConfirm"
         ></input>
     </view>
     <!-- bindtap="handleClear"点击取消按钮的事件 -->
@@ -27,16 +29,10 @@
 
 <!-- 历史内容 -->
 <view class="history-content">
-    <view class="content-item">
-        小米
-    </view>
-    <view class="content-item">
-        小米打大叔的撒 
-    </view>
-    <view class="content-item">
-        小米第五位
-    </view>
-    <view class="content-item">
-        小米大是大非饭安抚
-    </view>
+    <navigator
+    url="/pages/goods_list/index?query={{item}}"
+    class="content-item"
+    wx:for="{{ keywords }}"
+    wx:key="{{ index }}"
+    >{{item}}</navigator>
 </view>

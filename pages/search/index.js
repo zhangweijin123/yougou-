@@ -9,6 +9,8 @@ Page({
       isShow:false,
       //点击取消清除输入框的值
       searchValue:'',
+      //搜索历史列表
+      keywords: []
   },
 
   /**
@@ -16,6 +18,12 @@ Page({
    */
   onLoad: function (options) {
     
+  },
+  onShow(){
+    //每次页面显示重新获取本地数据渲染
+    this.setData({
+        keywords:wx.getStorageSync('search') || []
+    })
   },
   //监听输入框输值得时候事件
   handleInput(event){
@@ -40,6 +48,21 @@ Page({
     this.setData({
       isShow:false,
       searchValue:''
+    })
+  },
+  //点击右下角确定按钮时触发
+  handleConfirm(){
+    const arr = wx.getStorageSync('search') || [];
+
+    //判断本地是否有数据。有的话就追加unshift
+    arr.unshift(this.data.searchValue);
+
+    //保存到本地
+    wx.setStorageSync('search',arr);
+
+    //跳转到搜索列表页
+    wx.navigateTo({
+      url: '/pages/goods_list/index?query='+ this.data.searchValue,
     })
   }
 })

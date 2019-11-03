@@ -6,7 +6,9 @@ Page({
    */
   data: {
     //地址接收对象
-    address:{}
+    address:{},
+    //商品数据列表
+    goods:null,
   },
   //获取收货地址
   handleAddress(){
@@ -28,6 +30,15 @@ Page({
         }
       })
       }
+    })
+  },
+
+  onShow(){
+    //每次打开页面的时候从本地获取商品列表数据
+    const goods = wx.getStorageSync('goods') || null;
+
+    this.setData({
+      goods,
     })
   }
 })

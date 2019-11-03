@@ -125,5 +125,21 @@ Page({
     this.setData({
       goods
     })
+  },
+  //选中状态取反
+  handleSelected(event){
+    const { id } = evnet.target.dataset;
+    const { goods } = this.data;
+
+    //把选中的状态取反
+    goods[id].selected = !goods[id].selected
+
+    //修改data数据
+    this.setData({
+      goods
+    })
+
+    //保存到本地
+    wx.setStorageSync("goods", goods)
   }
 })

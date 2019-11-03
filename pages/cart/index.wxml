@@ -1,12 +1,10 @@
 <!--pages/cart/index.wxml-->
 <!-- 没有收货地址的时候显示 -->
 
-    <view class="address-bar" 
-    bindtap="handleAddress" 
-    wx:if="{{!address.userName}}">
-        <view>添加收货地址</view>
-        <view class="arrow"></view>
-    </view>
+<view class="address-bar" bindtap="handleAddress" wx:if="{{!address.userName}}">
+  <view>添加收货地址</view>
+  <view class="arrow"></view>
+</view>
 
 
 
@@ -14,15 +12,67 @@
 
 <!-- 有收货地址的时候显示 -->
 <view class="address" wx:if="{{address.userName}}">
-    <view class="address-info">
-        <view class="address-name">收货人：{{address.userName}}</view>
-        <view class="address-info-right">
-        <view class="address-phone">{{address.telNumber}}</view>
-        <view class="arrow"></view>
-        </view>  
+  <view class="address-info">
+    <view class="address-name">收货人：{{address.userName}}</view>
+    <view class="address-info-right">
+      <view class="address-phone">{{address.telNumber}}</view>
+      <view class="arrow"></view>
     </view>
-    <view class="address-detail">收货地址：{{address.detail}}</view>
-    <image src="../../images/cart_border@2x.png"></image>
+  </view>
+  <view class="address-detail">收货地址：{{address.detail}}</view>
+  <image src="../../images/cart_border@2x.png"></image>
 </view>
 
-<!-- 商品详情 -->
+<!-- 购物车商品详情 -->
+<view class="content">
+  <view class="iconfont icon-dianpu icon"></view>
+  <view>优购生活馆</view>
+</view>
+
+<view class="goods-list">
+  <view class="goods-item">
+    <!-- 左侧的选中状态按钮 -->
+    <icon type="success" size="14" color="red"></icon>
+
+    <!-- 右侧的详细信息 -->
+    <view class="goods-info">
+      <image src="https://img11.360buyimg.com/mobilecms/s280x280_jfs/t1/76752/34/2224/496652/5d0834f9E3ae35948/44282f48cc5f6abd.jpg.webp" mode="aspectFill"></image>
+
+      <view class="info-right">
+        <view class="info-title">
+          <text>其中英短猫就很受大家的欢迎,在所有的品种的猫咪中,它也算是比较热门的了。而为什么会有这么多人喜欢它也是有原因的,其中下面就是它的五个优点</text>
+        </view>
+
+        <!-- 价格数量 -->
+        <view class="info-bottom">
+          <view class="info-price">￥279</view>
+          <!-- 加减数量 -->
+          <view class="info-num">
+            <view class="info-num-btn">-</view>
+            <input value="1"></input>
+            <view class="info-num-btn">+</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>
+
+<!-- 底部详情 -->
+<view class="footer">
+    <!-- 左侧的选中状态按钮 -->
+    
+    <view class="footer-left">
+        <icon type="success" size="14" color="red"></icon>全选
+    </view>
+    <view class="footer-center">
+        <view class="top">合计：<text>￥180000</text></view>
+        <view class="btm">包含运费</view>
+    </view>
+    
+    <view class="checkout">
+        结算
+    </view>
+
+</view>

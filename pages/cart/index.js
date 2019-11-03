@@ -9,6 +9,8 @@ Page({
     address:{},
     //商品数据列表
     goods:null,
+    //计算总价格
+    allPrice:0
   },
   //获取收货地址
   handleAddress(){
@@ -40,6 +42,8 @@ Page({
     this.setData({
       goods,
     })
+    //计算总价格
+    this.handleAllPrice()
   },
   //数量减1
   handleReduce(event){
@@ -75,6 +79,8 @@ Page({
 
       // 保存到本地
       wx.setStorageSync("goods", goods);
+      //计算总价格
+      this.handleAllPrice()
     }
   },
   //数量加1
@@ -92,13 +98,15 @@ Page({
 
     // 保存到本地
     wx.setStorageSync("goods", goods);
+    //计算总价格
+    this.handleAllPrice()
   },
   // 监听输入框的数量输入
   //输入框输入数量
   handleChange(event){
     //获取输入框的值
     const value = +event.detail.value;
-    const {id} = evnet.target.dataset;
+    const {id} = event.target.dataset;
     const {goods} = this.data;
 
     //如果是空或者是0
@@ -116,7 +124,7 @@ Page({
   handleInput(event){
     //获取输入框的值
     const value = +event.detail.value;
-    const { id } = evnet.target.dataset;
+    const { id } = event.target.dataset;
     const { goods } = this.data;
     //判断是否有小数点 直接向下取整
     goods[id].number === Math.floor(value)
@@ -128,7 +136,7 @@ Page({
   },
   //选中状态取反
   handleSelected(event){
-    const { id } = evnet.target.dataset;
+    const { id } = event.target.dataset;
     const { goods } = this.data;
 
     //把选中的状态取反
@@ -141,5 +149,27 @@ Page({
 
     //保存到本地
     wx.setStorageSync("goods", goods)
+    //计算总价格
+    this.handleAllPrice()
+  },
+
+  //封装计算总价格
+  handleAllPrice() {
+    const { goods } = this.data;
+    let price = 0;
+
+    // 开始计算, v就是key，也就是商品id
+    Object.keys(goods).forEach(v=>{
+      //当前选中的商品
+      if(goods[v].selected){
+        //单价乘以数量
+        price += goods[v].number * goods[v].goods_price 
+      }
+    })
+
+    //修改data数据
+    this.setData({
+      allPrice:price
+    })
   }
 })

@@ -21,9 +21,11 @@ Page({
         // console.log(res.nationalCode)
         // console.log(res.telNumber)
       this.setData({
-        userName: res.userName,
-        telNumber: res.telNumber,
-        detail: res.provinceName + res.cityName + res.countyName + res.detailInfo
+        address:{
+          userName: res.userName,
+          telNumber: res.telNumber,
+          detail: res.provinceName + res.cityName + res.countyName + res.detailInfo
+        }
       })
       }
     })

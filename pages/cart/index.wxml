@@ -31,7 +31,7 @@
 <!-- 购物车为空的时候 -->
 <view class="empty" wx:if="{{!goods}}">购物车为空</view>
 <view class="goods-list"  wx:if="{{goods}}">
-  <view class="goods-item" wx:for="{{goods}}">
+  <view class="goods-item" wx:for="{{goods}}" wx:key="{{index}}">
     <!-- 左侧的选中状态按钮 -->
     <icon type="success" size="14" color="{{item.selected ? 'red' : 'gray'}}"></icon>
 
@@ -49,9 +49,9 @@
           <view class="info-price">￥{{item.goods_price}}</view>
           <!-- 加减数量 -->
           <view class="info-num">
-            <view class="info-num-btn">-</view>
-            <input value="1"></input>
-            <view class="info-num-btn">+</view>
+            <view class="info-num-btn" bindtap="handleReduce" data-id="{{item.goods_id}}">-</view>
+            <input value="{{ item.number }}" bindinput="handleInput" data-id="{{item.goods_id}}"></input>
+            <view class="info-num-btn" bindtap="handleAdd" data-id="{{item.goods_id}}">+</view>
           </view>
         </view>
       </view>

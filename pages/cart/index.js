@@ -40,5 +40,57 @@ Page({
     this.setData({
       goods,
     })
+  },
+  //数量减1
+  handleReduce(event){
+    const { id } = event.target.dataset;
+    const { goods } = this.data;
+    if (goods[id].number <= 1){
+      wx.showModal({
+        title: '提示',
+        content: '是否要删除商品？',
+        success:(res)=> {
+          if (res.confirm) {
+            //删除商品
+            delete goods[id];
+            // 由于showModal是异步执行，所以需要把修改data值的方式放到success中
+
+            this.setData({
+              goods
+            });
+            //保存到本地
+            wx.setStorageSync("goods", goods)
+          }
+        }
+      })
+
+    } else {
+      //数量减一
+      goods[id].number -= 1
+
+      //修改data的值
+      this.setData({
+        goods
+      })
+
+      // 保存到本地
+      wx.setStorageSync("goods", goods);
+    }
+  },
+  //数量加1
+  handleAdd(event){
+    const {id} = event.target.dataset;
+    const {goods} = this.data;
+    console.log(id)
+    //数量加一
+    goods[id].number += 1;
+
+    //修改data的值
+    this.setData({
+      goods
+    }) 
+
+    // 保存到本地
+    wx.setStorageSync("goods", goods);
   }
 })

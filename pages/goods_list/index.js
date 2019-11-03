@@ -53,7 +53,7 @@ Page({
         pagesize: 10
       }
     }).then(res => {
-      console.log(res)
+      
       const {goods} = res.data.message;
       //判断是否到最后一页
       if (goods.length < 10) {

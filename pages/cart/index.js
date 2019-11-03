@@ -92,5 +92,38 @@ Page({
 
     // 保存到本地
     wx.setStorageSync("goods", goods);
+  },
+  // 监听输入框的数量输入
+  //输入框输入数量
+  handleChange(event){
+    //获取输入框的值
+    const value = +event.detail.value;
+    const {id} = evnet.target.dataset;
+    const {goods} = this.data;
+
+    //如果是空或者是0
+    goods[id].number = value === 0 ? 1 : value;
+
+    //修改data数据
+    this.setData({
+      goods
+    })
+
+    //保存到本地
+    wx.setStorageSync("goods", goods)
+  },
+  //转换是否有小数点
+  handleInput(event){
+    //获取输入框的值
+    const value = +event.detail.value;
+    const { id } = evnet.target.dataset;
+    const { goods } = this.data;
+    //判断是否有小数点 直接向下取整
+    goods[id].number === Math.floor(value)
+
+    //修改data数据
+    this.setData({
+      goods
+    })
   }
 })

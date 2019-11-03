@@ -48,10 +48,20 @@
         <view class="info-bottom">
           <view class="info-price">￥{{item.goods_price}}</view>
           <!-- 加减数量 -->
+           <!-- type="tel"是数字格式 -->
           <view class="info-num">
-            <view class="info-num-btn" bindtap="handleReduce" data-id="{{item.goods_id}}">-</view>
-            <input value="{{ item.number }}" bindinput="handleInput" data-id="{{item.goods_id}}"></input>
-            <view class="info-num-btn" bindtap="handleAdd" data-id="{{item.goods_id}}">+</view>
+            <view class="info-num-btn" 
+            bindtap="handleReduce" 
+            data-id="{{item.goods_id}}">-</view>
+            <input value="{{ item.number }}" 
+            bindinput="handleInput" 
+            data-id="{{item.goods_id}}"
+            bindchange="handleChange"
+             type="tel"
+            ></input>
+            <view class="info-num-btn" 
+            bindtap="handleAdd" 
+            data-id="{{item.goods_id}}">+</view>
           </view>
         </view>
       </view>

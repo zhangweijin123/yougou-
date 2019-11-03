@@ -1,1 +1,32 @@
 /* pages/cart/index.wxss */
+.address-bar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx;
+}
+.address{
+  padding: 20rpx;
+}
+.address-info{
+  display: flex;
+  justify-content: space-between;
+}
+image{
+  height: 10rpx;
+}
+.address-info-right{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.arrow{
+  width: 18rpx;
+  height: 18rpx;
+  border-top: 1px solid #999;
+  border-right: 1px solid #999;
+  transform: rotate(45deg);
+}
+.address-detail{
+  padding-top: 10rpx;
+}

@@ -1,0 +1,10 @@
+<!--pages/auth/index.wxml-->
+<view style="padding:200rpx 50rpx">
+    <button
+      open-type="getUserInfo"
+      type="primary"
+      bindgetuserinfo="handleGetUserInfo"
+      style="width:650rpx"
+    > 授权</button>
+
+</view>

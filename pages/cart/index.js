@@ -52,7 +52,7 @@ Page({
   //数量减1
   handleReduce(event){
     const { id } = event.target.dataset;
-    const { goods } = this.data;
+    let { goods } = this.data;
     if (goods[id].number <= 1){
       wx.showModal({
         title: '提示',
@@ -62,7 +62,10 @@ Page({
             //删除商品
             delete goods[id];
             // 由于showModal是异步执行，所以需要把修改data值的方式放到success中
-
+            //判断一个对象是否为空对象
+            if(Object.keys(goods).length === 0){
+              goods = null;
+            }
             this.setData({
               goods
             });

@@ -33,6 +33,8 @@ Page({
           detail: res.provinceName + res.cityName + res.countyName + res.detailInfo
         }
       })
+        // 把收获地址保存到本地
+        wx.setStorageSync("address", this.data.address);
       }
     })
   },
@@ -216,5 +218,20 @@ Page({
     wx.setStorageSync("goods", goods);
     // 计算总价格
     this.handleAllPrice();
+  },
+
+  //提交
+  handleSubmit(){
+    //测试提交
+    //判断本地是否有token 有token就跳转到订单详情页 没有跳转到登录页
+    if(wx.getStorageSync('token')){
+      wx.navigateTo({
+        url: '/pages/order_enter/index',
+      })
+    }else{
+      wx.navigateTo({
+        url: '/pages/auth/index',
+      })
+    }
   }
 })

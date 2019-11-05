@@ -39,9 +39,7 @@ image{
 .icon{
   margin-right: 10rpx;
 }
-.goods-list{
-  padding-bottom:100rpx;
-}
+
 .goods-item{
   display: flex;
   justify-content: space-between;
@@ -118,26 +116,23 @@ image{
 
 .footer-left{
   display: flex;
+  flex-direction: column;
   align-items: center;
   padding: 0 20rpx;
+  font-size: 14px;
 }
-.footer-left icon {
-  margin-right: 20rpx;
+.footer-left text{
+  color: gray;
 }
-.footer-center{
-  flex: 1;
-  padding: 0 20rpx;
-}
-.footer-center text{
-  color: red;
-}
-.footer-center .btm {
+.footer-left .btm {
   color: #999;
   font-size: 14px;
 }
-
-.checkout{
-  width: 200rpx;
+.allprice text{
+  color: red;
+}
+button{
+  width: 300rpx;
   height: 100rpx;
   line-height: 100rpx;
   text-align: center;
